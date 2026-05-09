@@ -1,0 +1,14 @@
+.vscode/**
+.vscode-test/**
+out/test/**
+src/**
+.gitignore
+.gitattributes
+tsconfig.json
+package-lock.json
+prompt.md
+List of x86 instructions - Wikipedia.html
+nasmdoc.txt
+parse_data.py
+parse_kb.py
+**/.*
