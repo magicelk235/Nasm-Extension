@@ -281,7 +281,7 @@ function parseDocumentSymbols(document: vscode.TextDocument): SymbolInfo[] {
             symbols.push({ name, description: extractComment(lines, i), kind: vscode.CompletionItemKind.Snippet, uri: document.uri });
             continue;
         }
-        const defineMatch = line.match(new RegExp(`^\\s*%(?:i?x?define|i?def(?:str|tok)|strlen|substr)\\s+(${idRegex.source})`, 'i'));
+        const defineMatch = line.match(new RegExp(`^\\s*%(?:i?x?define|i?def(?:str|tok)|i?assign|strlen|substr)\\s+(${idRegex.source})`, 'i'));
         if (defineMatch) {
             const name = defineMatch[1];
             symbols.push({ name, description: extractComment(lines, i), kind: vscode.CompletionItemKind.Constant, uri: document.uri });
