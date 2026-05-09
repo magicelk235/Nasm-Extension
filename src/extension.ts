@@ -80,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     const hoverProvider = vscode.languages.registerHoverProvider('nasm', {
         provideHover(document: vscode.TextDocument, position: vscode.Position) {
-            const range = document.getWordRangeAtPosition(position, /(?:0x[0-9a-fA-F]+|\$[0-9a-fA-F]+|[0-9][0-9a-fA-F]*h|0b[01]+|[01]+[by]|\d+\.\d*(?:[eE][+-]?\d+)?|\.\d+(?:[eE][+-]?\d+)?|[a-zA-Z_?%.][a-zA-Z0-9_$#@~.?]*)/i);
+            const range = document.getWordRangeAtPosition(position, /(?:0x[0-9a-fA-F]+|\$[0-9a-fA-F]+|[0-9][0-9a-fA-F]*h|0b[01]+|[01]+[by]|\d+\.\d*(?:[eE][+-]?\d+)?|\.\d+(?:[eE][+-]?\d+)?|\d+[dt]?|[a-zA-Z_?%.][a-zA-Z0-9_$#@~.?]*)/i);
             if (!range) return;
 
             const word = document.getText(range);
