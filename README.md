@@ -1,51 +1,51 @@
-# NASM x86-64 Assembly for VSCode
+# NASM x86-64 for VS Code
 
-A high-performance, intelligent extension for NASM x86-64 assembly development. Designed for clarity, speed, and accuracy, this extension provides professional-grade syntax highlighting and IntelliSense that actually understands the structure of your code.
+Writing assembly shouldn't mean fighting your editor. This extension gives you proper syntax highlighting, hover docs, and autocomplete for NASM x86-64 — the kind of tooling you'd expect for any modern language.
 
-## Key Features
+## What You Get
 
-### 🧠 Intelligent Semantic Highlighting
-Unlike basic extensions that just color words, this uses a semantic engine to distinguish between:
-- **Instructions:** Always Purple (`#C586C0`), whether they are standard mnemonics or user-defined macros.
-- **Registers:** Consistently Blue (`#569CD6`).
-- **Labels & Symbols:** Yellow (`#FFCC00`) for easy visual tracking of program flow.
-- **Preprocessor:** Directives like `%macro` and `%define` share the instruction color for a unified "command" feel.
+**Colors that make sense.** Instructions are purple, registers are blue, labels are yellow. Macros you define get treated like instructions, not random text. Your code looks consistent whether you're using `mov` or your own `print_string` macro.
 
-### 🔍 Project-Wide Symbol Discovery
-- **Cross-File Support:** Labels and macros defined in any open assembly tab are automatically shared. No more "undefined symbol" errors for code in your other files.
-- **Local Label Intelligence:** Full support for NASM local labels (starting with `.`).
-- **Dynamic Suggestions:** Real-time completion suggestions for instructions, registers, and your own custom symbols.
+**Hover over anything.** Put your cursor on `jne` and see what it does. Hover over `0x1F3A` and get decimal, hex, and binary conversions without opening a calculator. The extension knows 684 x86-64 instructions and NASM directives.
 
-### 🔢 Numeric Hover & Conversion
-Hover over any number to see instant conversions without opening a calculator:
-- **Integers:** View Decimal, Hex, and Binary equivalents (with 8-bit grouping).
-- **Float64:** Hover over floating-point numbers to see the exact 64-bit IEEE 754 bit representation in Hex and Binary.
-- **NASM Formats:** Supports `0x`, `$`, `h` suffix for Hex; `0b`, `b` suffix for Binary; and standard decimals.
+**Cross-file awareness.** Labels and macros from any open assembly tab show up in autocomplete. Define `my_function` in one file, use it in another — the editor knows.
 
-### 📚 Comprehensive Knowledge Base
-Includes a distilled dictionary of **684 x86-64 instructions and NASM directives**.
-- Hover over any instruction for a concise 1-2 sentence explanation.
-- No more tab-switching to Wikipedia or the NASM manual for basic mnemonic lookups.
+**Local labels work properly.** NASM's `.local_label` syntax is fully supported. Type `.` and see suggestions for labels in the current scope.
 
-### 💬 Human-Centric Documentation
-- Automatically extracts comments from preceding lines or the same line.
-- Displays documentation in a clean, compact format with "soft" newlines for maximum readability.
+## Number Hover Examples
 
-## Installation
+| You write | You see |
+|-----------|---------|
+| `0xFF` | 255, 0xFF, 0b11111111 |
+| `3.14` | IEEE 754 bit representation |
+| `100b` | Binary to decimal/hex |
 
-1. Copy the project folder to your extensions directory:
-   `~/.vscode/extensions/` (or your platform's equivalent).
-2. Restart VSCode.
+Supports all NASM number formats: `0x`, `$`, `h` suffix, `0b`, `b` suffix, plain decimals.
 
-## Configuration
+## Quick Tips
 
-The extension comes with pre-configured token colors to ensure the assembly aesthetic is preserved regardless of your theme. These can be customized in your `settings.json` under `editor.semanticTokenColorCustomizations`.
+- Type `%` for preprocessor directive suggestions
+- Type `.` for local label suggestions  
+- Keep related `.asm` files open for cross-file symbol discovery
 
-## Usage Tips
+## Install
 
-- **Local Labels:** Type `.` to immediately trigger suggestions for local labels.
-- **Preprocessor:** Type `%` to see a full list of NASM preprocessor directives and macros.
-- **Multi-File:** Keep related assembly files open in tabs to enable cross-file symbol discovery.
+**From Marketplace:** Search "NASM x64" in VS Code extensions.
+
+**Manual:** Copy to `~/.vscode/extensions/` and restart.
+
+## Customize Colors
+
+The extension sets sensible defaults, but you can override in `settings.json`:
+
+```json
+"editor.semanticTokenColorCustomizations": {
+  "rules": {
+    "macro": "#C586C0"
+  }
+}
+```
 
 ---
-**Maintained by magicelk235**
+
+Made by magicelk235
